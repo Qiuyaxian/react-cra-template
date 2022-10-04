@@ -1,0 +1,49 @@
+// Color
+@color-white: #fff;
+@color-black: #000;
+
+@color-primary: #409eff;
+@color-primary-light-1: mix(@color-white, @color-primary, 10%); // 53a8ff
+@color-primary-light-2: mix(@color-white, @color-primary, 20%); // 66b1ff
+@color-primary-light-3: mix(@color-white, @color-primary, 30%); // 79bbff
+@color-primary-light-4: mix(@color-white, @color-primary, 40%); // 8cc5ff
+@color-primary-light-5: mix(@color-white, @color-primary, 50%); // a0cfff
+@color-primary-light-6: mix(@color-white, @color-primary, 60%); // b3d8ff
+@color-primary-light-7: mix(@color-white, @color-primary, 70%); // c6e2ff
+@color-primary-light-8: mix(@color-white, @color-primary, 80%); // d9ecff
+@color-primary-light-9: mix(@color-white, @color-primary, 90%); // ecf5ff
+
+// Layout
+@topbar-height: 60px;
+
+// Media queries breakpoints
+// Extra small screen / phone
+@screen-xs: 480px;
+@screen-xs-min: @screen-xs;
+
+// Small screen / tablet
+@screen-sm: 576px;
+@screen-sm-min: @screen-sm;
+
+// Medium screen / desktop
+@screen-md: 768px;
+@screen-md-min: @screen-md;
+
+// Large screen / wide desktop
+@screen-lg: 992px;
+@screen-lg-min: @screen-lg;
+
+// Extra large screen / full hd
+@screen-xl: 1200px;
+@screen-xl-min: @screen-xl;
+
+// Extra extra large screen / large descktop
+@screen-xxl: 1600px;
+@screen-xxl-min: @screen-xxl;
+
+// provide a maximum
+@screen-xs-max: (@screen-sm-min - 1px);
+@screen-sm-max: (@screen-md-min - 1px);
+@screen-md-max: (@screen-lg-min - 1px);
+@screen-lg-max: (@screen-xl-min - 1px);
+@screen-xl-max: (@screen-xxl-min - 1px);
