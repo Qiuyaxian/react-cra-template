@@ -1,10 +1,14 @@
+const limitTypeList = require('./versionrc').types
+const limitTypeKeyList = limitTypeList.map((item) => item.value)
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
+  // extends: ['@commitlint/config-conventional'],
+  extends: ['cz'],
   rules: {
     'type-enum': [
       2,
       'always',
-      ['upd', 'feat', 'fix', 'refactor', 'docs', 'chore', 'style', 'revert']
+      limitTypeKeyList
+      // ['upd', 'feat', 'fix', 'refactor', 'docs', 'chore', 'style', 'revert']
     ],
     'type-case': [0],
     'type-empty': [0],
