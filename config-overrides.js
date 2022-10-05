@@ -40,7 +40,7 @@ const isbuild = buildEnv === 'server'
 // 是否开启压缩
 const isGzip = buildGzip === 'true'
 // 打包模拟数据
-const isMock = mockEnv === 'true'
+const isMock = process.env.use_mock === 'true'
 // 用于判断部署于正式环境不生成 sourceMap
 // const useSourceMap = isbuild || isProd
 // 是否开启代码片段分析

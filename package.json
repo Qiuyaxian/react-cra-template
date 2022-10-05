@@ -34,10 +34,10 @@
   },
   "scripts": {
     "serve": "npm run serve:dev",
+    "serve:mock": "cross-env use_mock=true npm run serve",
     "serve:dev": "dotenv -e .env.serve-dev react-app-rewired start",
     "serve:release": "dotenv -e .env.serve-release react-app-rewired start",
     "serve:prod": "dotenv -e .env.serve-prod react-app-rewired start",
-    "serve:mock": "dotenv -e .env.serve-mock react-app-rewired start",
     "build": "npm run build:dev",
     "build:dev": "dotenv -e .env.build-dev react-app-rewired build",
     "build:release": "dotenv -e .env.build-release react-app-rewired build",
