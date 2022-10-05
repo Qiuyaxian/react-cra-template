@@ -1,7 +1,7 @@
 const path = require('path')
 const {
   override,
-  fixBabelImports,
+  // fixBabelImports,
   addWebpackAlias,
   addWebpackPlugin,
   overrideDevServer,
@@ -9,6 +9,8 @@ const {
   addWebpackResolve,
   addWebpackModuleRule
 } = require('customize-cra')
+// 配置热加载
+const rewireReactHotLoader = require('react-app-rewire-hot-loader')
 // 代码压缩(webpack@5中已自带压缩)
 // const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // css压缩
@@ -288,6 +290,8 @@ module.exports = {
           }
         }
       }
+      // 设置热加载
+      config = rewireReactHotLoader(config, env)
       return config
     }
   ),
@@ -300,6 +304,7 @@ module.exports = {
       // webpack@5
       historyApiFallback: true,
       allowedHosts: 'all'
+      // hot: true
       // proxy: {}
     }
     if (isMock) {

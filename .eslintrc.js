@@ -1,7 +1,13 @@
 module.exports = {
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    node: true
   },
   extends: [
     'eslint:recommended',
@@ -18,6 +24,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
+  parser: '@babel/eslint-parser',
   plugins: [
     'react',
     'prettier',
