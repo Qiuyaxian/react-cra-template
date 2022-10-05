@@ -1,0 +1,12 @@
+/logs
+/node_modules
+/dist
+/package-lock.json
+/src/app.config.js
+.prettierrc.js
+babel.config.js
+husky.config.js
+jest.config.js
+postcss.config.js
+stylelint.config.js
+.DS_Store

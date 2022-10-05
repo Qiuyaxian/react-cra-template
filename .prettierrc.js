@@ -10,5 +10,5 @@ module.exports = {
   proseWrap: 'never',
   endOfLine: 'auto',
   trailingComma: 'none',
-  htmlWhitespaceSensitivity: 'ignore',
+  htmlWhitespaceSensitivity: 'ignore'
 }

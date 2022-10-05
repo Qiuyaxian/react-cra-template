@@ -15,7 +15,7 @@ function withRouter(Component) {
           route: null,
           location,
           navigate,
-          params,
+          params
         }}
       />
     )

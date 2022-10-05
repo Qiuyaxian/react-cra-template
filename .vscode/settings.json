@@ -20,9 +20,15 @@
     }
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll": true, // 开启自动修复
+    "source.fixAll.stylelint": true // 开启stylelint自动修复
   },
-
+  // 配置stylelint检查的文件类型范围
+  "stylelint.validate": ["css", "less", "postcss", "scss", "sass"],
+  "stylelint.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   // 编辑器设置 - 保存时做格式化
   "editor.formatOnType": true,
   "editor.formatOnSave": true,

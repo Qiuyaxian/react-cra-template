@@ -34,7 +34,7 @@ export default function request(_requestConfig = {}) {
     timeout: appConfig.requestTimeout,
     withCredentials: true,
     responseType: 'json',
-    ...axiosRequestConfig,
+    ...axiosRequestConfig
   })
 
   // 请求拦截器
@@ -92,7 +92,7 @@ export default function request(_requestConfig = {}) {
           Message({
             message: appConfig.errorMessageHasCode ? logMessage : showMessage,
             type: 'error',
-            duration: 5000,
+            duration: 5000
           })
         }
 

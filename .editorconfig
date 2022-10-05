@@ -1,15 +1,27 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
 root = true
 
-[*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
+[**]
+# utf-8编码
 charset = utf-8
-trim_trailing_whitespace = true
+
+## 换行符
+end_of_line = lf
+
+# 结尾插入新行
 insert_final_newline = true
 
-[*.md]
-trim_trailing_whitespace = false
+# 使用单引号
+quote_type = single
 
-[Makefile]
-indent_style = tab
+# 空格形式缩进
+indent_style = space
+indent_size = 4
+
+# 去除结尾空格
+trim_trailing_whitespace = true
+
+[*.md]
+insert_final_newline = false
+trim_trailing_whitespace = false

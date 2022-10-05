@@ -15,12 +15,12 @@ import apiConfig from '@/api.config'
 
 const silentRequestService = request({
   ...apiConfig.main,
-  silent: true,
+  silent: true
 })
 
 export function getCurrentUser() {
   return silentRequestService({
     url: '/user/getCurrentUser',
-    method: 'get',
+    method: 'get'
   })
 }

@@ -2,16 +2,23 @@ module.exports = {
   extends: [
     // Use the Standard config as the base
     // https://github.com/stylelint/stylelint-config-standard
-    'stylelint-config-standard',
+    // 'stylelint-config-standard',
     // Enforce a standard order for CSS properties
     // https://github.com/stormwarning/stylelint-config-recess-order
-    'stylelint-config-recess-order',
+    // 'stylelint-config-recess-order',
     // Override rules that would interfere with Prettier
     // https://github.com/shannonmoeller/stylelint-config-prettier
-    'stylelint-config-prettier',
+    'stylelint-config-prettier'
     // Override rules to allow linting of CSS modules
     // https://github.com/pascalduez/stylelint-config-css-modules
-    'stylelint-config-css-modules',
+    // 'stylelint-config-css-modules'
+  ],
+  customSyntax: 'postcss-html',
+  overrides: [
+    {
+      files: ['**/*.{css,less}'], // css 相关文件由 postcss-scss 处理
+      customSyntax: 'postcss-less'
+    }
   ],
   plugins: [],
   // Rule lists:
@@ -22,13 +29,14 @@ module.exports = {
     'string-no-newline': null,
     // Enforce camelCase for classes and ids, to work better
     // with CSS modules
-    'selector-class-pattern': /^[a-z][a-zA-Z-_]*(-(enter|leave)(-(active|to))?)?$/,
+    'selector-class-pattern':
+      /^[a-z][a-zA-Z-_]*(-(enter|leave)(-(active|to))?)?$/,
     'selector-id-pattern': /^[a-z][a-zA-Z-_]*$/,
     // Limit the number of universal selectors in a selector,
     // to avoid very slow selectors
     'selector-max-universal': 1,
     // Disallow allow global element/type selectors in scoped modules
-    'selector-max-type': [0, { ignore: ['child', 'descendant', 'compounded'] }],
+    'selector-max-type': [2, { ignore: ['child', 'descendant', 'compounded'] }],
     // ===
     // PRETTIER
     // ===
@@ -39,12 +47,13 @@ module.exports = {
       {
         except: ['blockless-after-same-name-blockless', 'first-nested'],
         ignore: ['after-comment'],
-        ignoreAtRules: ['else'],
-      },
+        ignoreAtRules: ['else']
+      }
     ],
     // Allow CSS module keywords beginning with `@`
     'at-rule-no-unknown': null,
     'no-duplicate-selectors': null,
-    'no-descending-specificity': null,
+    'no-descending-specificity': null
   },
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json']
 }

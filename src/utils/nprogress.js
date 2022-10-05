@@ -6,12 +6,12 @@ import appConfig from '@/app.config'
 const loadingDefaultConfig = {
   color: '#29d',
   height: '2px',
-  showSpinner: false,
+  showSpinner: false
 }
 const { loading } = appConfig
 const loadingConfig = {
   ...loadingDefaultConfig,
-  ...loading,
+  ...loading
 }
 NProgress.configure(loadingConfig)
 

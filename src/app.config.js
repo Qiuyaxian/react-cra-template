@@ -14,7 +14,7 @@ module.exports = {
   // 顶部进度条配置
   loading: {
     color: '#2d9',
-    showSpinner: false,
+    showSpinner: false
   },
 
   // 路由切换时是否显示顶部进度条
@@ -27,5 +27,5 @@ module.exports = {
   errorMessageHasCode: false,
 
   // 默认请求方法下，请求失败时是否在 console 面板打印错误信息
-  logOnRequestError: !isServer || !isProd,
+  logOnRequestError: !isServer || !isProd
 }

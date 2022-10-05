@@ -10,7 +10,7 @@ export function useRouterItem() {
 // 验证提供者
 export default function RouterProvider({ children, route }) {
   const providerContext = {
-    route: route,
+    route: route
   }
   return (
     <RouterContext.Provider value={providerContext}>
