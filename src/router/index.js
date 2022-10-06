@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import {
-  HashRouter,
-  useRoutes,
-  useLocation,
-  Navigate
-  // createHashRouter
-} from 'react-router-dom'
+import { HashRouter, useRoutes, useLocation, Navigate } from 'react-router-dom'
+import { getCurrentUser } from '@/api/main'
+import store from '@/redux/store'
+import { updateUserInfo } from '@/redux/modules/user/actions'
+
 import routes, { asyncRoutes } from './routes.js'
 /* eslint-disable-next-line */
 class BeforeRouteEnter extends React.PureComponent {
@@ -44,7 +42,7 @@ class BeforeRouteEnter extends React.PureComponent {
   }
 }
 
-function RouterRenderElement(RouteEnter, globalBeforeEach) {
+function RouterRenderElement(RouteEnter, beforeEach) {
   return class RouterRenderComponent extends React.PureComponent {
     constructor(props) {
       super(props)
@@ -71,8 +69,8 @@ function RouterRenderElement(RouteEnter, globalBeforeEach) {
           })
         }
       }
-      if (route && globalBeforeEach) {
-        globalBeforeEach(route, next)
+      if (beforeEach) {
+        beforeEach(next, route)
       } else {
         next()
       }
@@ -100,7 +98,9 @@ function ReactRouter(routeConfig) {
   // 渲染路由前
   const ReactRouterContent = RouterRenderElement(
     BeforeRouteEnter,
-    globalBeforeEach
+    function (to, next) {
+      return globalBeforeEach(to, next)
+    }
   )
 
   function ReactRouterComponent() {
@@ -176,11 +176,25 @@ const router = new ReactRouter({
   routes: routes
 })
 
-router.beforeEach((to, next) => {
-  next()
+router.beforeEach(async (next) => {
+  try {
+    const user = store.getState()?.user
+    if (!user.userInfo) {
+      const response = await getCurrentUser()
+      if (response) {
+        store.dispatch(updateUserInfo({ userInfo: response.user }))
+      }
+      router.addRoutes(asyncRoutes)
+      next()
+    } else {
+      next()
+    }
+  } catch (error) {
+    next('/404')
+  }
 })
 
-setTimeout(() => {
-  router.addRoutes(asyncRoutes)
-}, 3000)
+// setTimeout(() => {
+//   router.addRoutes(asyncRoutes)
+// }, 3000)
 export default router

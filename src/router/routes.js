@@ -6,6 +6,7 @@ Suspense是在路由加载时显示的界面：比如：这个组件中加载的
 
 /* eslint-disable */
 import React, { lazy, Suspense } from 'react'
+
 function Layout(path) {
   const ViewComponent = lazy(() => import(`@/views/${path}`))
   return (

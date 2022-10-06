@@ -1,9 +1,7 @@
 import mutations from './mutations'
 // state
 const initState = {
-  userInfo: {
-    name: '章三'
-  }
+  userInfo: null
 }
 // gettres
 const reducer = (state = initState, { type, data }) => {

@@ -26,6 +26,7 @@ export default function request(_requestConfig = {}) {
   const {
     apiKey,
     silent = false,
+    transformResponse = null,
     transformRequestConfig,
     ...axiosRequestConfig
   } = _requestConfig
@@ -65,6 +66,9 @@ export default function request(_requestConfig = {}) {
       }
 
       const res = response.data
+      if (isFunction(transformResponse)) {
+        return transformResponse(res)
+      }
       if (res.is_success === true) {
         return res
       } else if (!silent) {
