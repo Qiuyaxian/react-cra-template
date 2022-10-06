@@ -39,7 +39,7 @@ const routes = [
     path: '/404',
     element: Layout('layout/ErrorPage'),
     name: '404',
-    auth: true
+    auth: false
   }
   // {
   //   path: '*',

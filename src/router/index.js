@@ -94,19 +94,47 @@ function ReactRouter(routeConfig) {
   let globalRoutes = [].concat(routeConfig.routes || [])
   let initGlobalRouteQueue = []
   let routeMode = routeConfig.mode || defaultRouteMode
+  let globalRoutePath = null
   // 进入路由前
   // 渲染路由前
-  const ReactRouterContent = RouterRenderElement(
-    BeforeRouteEnter,
-    function (to, next) {
+  const ReactRouterContent = React.memo(
+    RouterRenderElement(BeforeRouteEnter, function (to, next) {
       return globalBeforeEach(to, next)
+    }),
+    (prevProps, nextProps) => {
+      if (prevProps.routePath && nextProps.routePath) {
+        return prevProps.routePath === nextProps.routePath
+      }
+      return false
+      // 传入的参数就是变化前的props和变化后的props,用来给我们手动对比
+      // return true就是不更新,使用缓存组件,return false就是更新
     }
   )
+
+  function ReactRouterElement({ routes }) {
+    const toLocation = useLocation()
+    const { key } = toLocation
+    const element = useRoutes(routes)
+    const routePath = element ? element.props.match.route.path : key
+    // 防止多次执行 ReactRouterContent
+    if (globalRoutePath === routePath) {
+      return element
+    }
+    globalRoutePath = routePath
+    return (
+      <ReactRouterContent
+        key={routePath}
+        route={element}
+        to={toLocation}
+        path={routePath}
+      ></ReactRouterContent>
+    )
+  }
 
   function ReactRouterComponent() {
     // 初始化监听，负责路由更新，addRoutes
     const [initRoutes, updateRoutes] = useState(globalRoutes)
-    let routerIndex = 1
+    // let routerIndex = 1
     useEffect(() => {
       if (initGlobalRouteQueue.length !== 0) {
         let mergeRoutes = []
@@ -121,17 +149,9 @@ function ReactRouter(routeConfig) {
           updateRoutes(initRoutes.concat(routes))
         }
       }
-      routerIndex++
     }, [initRoutes])
-    const toLocation = useLocation()
-    const { key } = toLocation
-    const element = useRoutes(initRoutes)
     return (
-      <ReactRouterContent
-        key={element ? `${routerIndex}-${key}` : key}
-        route={element}
-        to={toLocation}
-      ></ReactRouterContent>
+      <ReactRouterElement routes={[].concat(initRoutes)}></ReactRouterElement>
     )
   }
 
