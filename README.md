@@ -1,4 +1,4 @@
-# 基于 React 脚手架集成 customize-cra 项目模版 
+# 基于 customize-cra 与 React 脚手架实现react通用项目模版 
 
 - [x] 支持按需修改webpack配置
   - [x] less 开发
@@ -12,7 +12,8 @@
 
 ## TODO
 
-- [ ] 抽离部分逻辑为可配置项，如 ./src/app.config.js
+- [ ] 抽离部分逻辑为可配置项到 ./src/app.config.js 下
+- [ ] 集成jest单元测试
 
 ## 技术选型
 
@@ -20,7 +21,7 @@
 - [react-redux](https://react-redux.js.org/)
 - [react-router@6](https://reactrouter.com/en/v6.3.0)
 - [axios](http://www.axios-js.com/)
-- [Element-ui](https://elemefe.github.io/element-react/#/zh-CN/quick-start)
+- [Element-react](https://elemefe.github.io/element-react/#/zh-CN/quick-start)
 - [react:customize-cra修改webpack配置](http://www.ay1.cc/article/12681.html)
 
 参考文档
