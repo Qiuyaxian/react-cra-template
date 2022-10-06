@@ -150,7 +150,7 @@
 
 ### `npm run build:dev`
 
-执行功能同上（npm run build
+执行功能同上（npm run build）
 
 ### `npm run build:release`
 
