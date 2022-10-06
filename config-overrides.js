@@ -31,15 +31,13 @@ const confEnv = process.env.REACT_APP_ENV
 const buildEnv = process.env.REACT_APP_CLIENT
 // 构建gzip
 const buildGzip = process.env.REACT_APP_GZIP
-// mock
-const mockEnv = process.env.REACT_APP_MOCK
 // 是否是正式环境
-const isProd = confEnv === 'prod'
+// const isProd = confEnv === 'prod'
 // 是否是构建环境
 const isbuild = buildEnv === 'server'
 // 是否开启压缩
 const isGzip = buildGzip === 'true'
-// 打包模拟数据
+// mock
 const isMock = process.env.use_mock === 'true'
 // 用于判断部署于正式环境不生成 sourceMap
 // const useSourceMap = isbuild || isProd
@@ -165,33 +163,15 @@ module.exports = {
           deleteOriginalAssets: false
         })
       ),
-    // 预处理 postcss
-    // addPostcssPlugins([
-    //   require("postcss-px2rem")({ remUnit:37.5})
-    // ]),
     // 全局引入
     // fixBabelImports('import', {
     //   libraryName: 'element-react',
-    //   libraryDirectory: 'es',
+    //   libraryDirectory: 'lib',
     //   style: true,
+    //   legacy: true
     // }),
     //暴露webpack的配置 config ,env
     (config, env) => {
-      // let entry = config.entry
-      // Object.keys(entry).forEach(function (name) {
-      //   entry[name] = ['./src/mock'].concat(entry[name]) //---在运行npm run mock时将mock这个文件在entry中打包编译进来
-      // })
-      // console.log(config.module.rules)
-      // throw new Error('rules')
-      // if(process.env.NODE_ENV !== "development") {
-      //    config.plugins = [...config.plugins,...myPlugin]
-      // }
-      // 修改别名配置
-      // config.resolve.alias = {
-      //   ...config.resolve.alias,
-      //   '@': resolve('src')
-      // }
-
       // 新增less处理
       const moduleLoaders = config.module.rules.find((rule) =>
         Array.isArray(rule.oneOf)
