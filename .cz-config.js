@@ -29,8 +29,8 @@ module.exports = {
     // footer: '请输入要关闭的issue，例如：#12, #34(可选):\n',
     confirmCommit: '确定提交此说明吗？'
   },
-  allowCustomScopes: true,
-  allowBreakingChanges: ['feat', 'fix'],
+  // allowCustomScopes: true,
+  // allowBreakingChanges: ['feat', 'fix'],
   // 限制 subject 长度
   subjectLimit: 100
   // 跳过问题 skip any questions you want
