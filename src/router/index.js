@@ -1,11 +1,20 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react'
-import { HashRouter, useRoutes, useLocation, Navigate } from 'react-router-dom'
+import {
+  RouterProvider,
+  createHashRouter,
+  HashRouter,
+  useRoutes,
+  useLocation,
+  Navigate,
+  useMatch
+} from 'react-router-dom'
 import { getCurrentUser } from '@/api/main'
 import store from '@/redux/store'
 import { updateUserInfo } from '@/redux/modules/user/actions'
 
 import routes, { asyncRoutes } from './routes.js'
-/* eslint-disable-next-line */
+
 class BeforeRouteEnter extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -89,6 +98,7 @@ function RouterRenderElement(RouteEnter, beforeEach) {
 
 function ReactRouter(routeConfig) {
   const defaultRouteMode = 'element'
+  const globalRoutesMap = new Map()
   let updateGlobalRoutes = null
   let globalBeforeEach = null
   let globalRoutes = [].concat(routeConfig.routes || [])

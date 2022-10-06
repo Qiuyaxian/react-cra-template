@@ -33,7 +33,15 @@ const routes = [
     beforeEnter: (next) => {
       next()
     },
-    auth: true
+    auth: true,
+    children: [
+      {
+        path: ':id/:name',
+        element: Layout('layout/ErrorPage'),
+        name: '2323',
+        auth: false
+      }
+    ]
   },
   {
     path: '/404',
