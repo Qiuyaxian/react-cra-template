@@ -112,10 +112,10 @@
 |-- .stylelintignore      // stylelint 忽略格式化配置文件
 |-- babel.config.js       // babel 配置文件（方便按需配置）
 |-- commitlint.config.js  // git commit 提交配置文件
-|-- config-overrides.js   // 基于 customize-cra 与 react-app-rewired 对 react进行按需配置
+|-- config-overrides.js   // 基于 customize-cra 与 react-app-rewired 对 react 脚手架进行按需配置
 |-- husky.config.js       // git commit 提交钩子 husky
-|-- lint-staged.config.js //
-|-- mock.config.js        // mock 配置，内置实现mock模块已经注册钩子
+|-- lint-staged.config.js // 提交前检查类型配置
+|-- mock.config.js        // mock 配置，内置实现mock模块注册钩子
 |-- postcss.config.js     // postcss 预处理
 |-- proxy.config.js       // 本地转发代理配置
 |-- versionrc.js          // git commit 特性配置文件
