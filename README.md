@@ -124,6 +124,8 @@
 |-- yarn.lock             // yarn安装依赖包的版本信息锁定文件
 ```
 
+## 本地开发
+
 ### `npm run serve`
 
 在本机运行开发环境（运行npm run serve:dev）
@@ -144,9 +146,12 @@
 
 在本机运行正式环境
 
+## 构建命令
+
 ### `npm run build`
 
 执行构建，打包开发环境代码（同等于运行npm run build:dev）
+前端资源文件构建后默认会生成于 `/dist/dev` 目录下
 
 ### `npm run build:dev`
 
@@ -155,14 +160,18 @@
 ### `npm run build:release`
 
 执行构建，打包测试环境代码
+前端资源文件构建后默认会生成于 `/dist/release` 目录下
 
 ### `npm run build:prod`
 
 执行构建，打包正式环境代码
+前端资源文件构建后默认会生成于 `/dist/prod` 目录下
 
 ### `npm run build:analyzer`
 
 执行构建，打包开发环境代码并执行了打包分析工具
+
+## 代码格式化命令
 
 ### `npm run lint:all`
 
@@ -179,6 +188,8 @@
 ### `npm run test`
 
 对项目中的页面或功能进行单元测试
+
+## git commit 提交代码命令
 
 ### `npm run commit`
 
