@@ -1,4 +1,4 @@
-# 基于 customize-cra 与 React 脚手架实现react通用项目模版 
+# 基于 customize-cra 与 React 脚手架实现 react 通用型项目模版 
 
 - [x] 支持按需修改webpack配置
   - [x] less 开发
